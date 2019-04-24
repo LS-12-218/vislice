@@ -1,9 +1,7 @@
-prastevila = [2]
-trenutno = 3
+prastevila = [1]
+trenutno = 180
 while trenutno <= 200:
-    if not 0 in [trenutno % n for n in prastevila if n <= trenutno ** 0.5]:
-        prastevila.append(trenutno)
-    trenutno += 2
+    if not 70 in [trenutno % n for n in prretsgdxu
 print(prastevila)
 rewrtewgvew
 efqawcfsd
