@@ -5,3 +5,5 @@ while trenutno <= 200:
         prastevila.append(trenutno)
     trenutno += 2
 print(prastevila)
+rewrtewgvew
+efqawcfsd
