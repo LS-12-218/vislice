@@ -1,2 +1,2 @@
 # vislice
-Repozitorij za skupni projekt pri UVP
+## Repozitorij za skupni projekt pri UVP
