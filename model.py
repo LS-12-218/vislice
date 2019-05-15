@@ -34,7 +34,10 @@ class Igra:
                 niz += "_"
         return niz
     def nepravilni_ugibi(self):
-        return " ".join(self.napacne_crke)
+        if self.napacne_crke() == []:
+            return ""
+        else:
+            return " ".join(self.napacne_crke())
     def ugibaj(self, crka):
         crko = crka.upper()
         if crko in self.crke:
