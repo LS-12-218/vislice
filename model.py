@@ -1,3 +1,5 @@
+import random
+
 STEVILO_DOVOLJENIH_NAPAK = 10
 PRAVILNA_CRKA = "+"
 PONOVLJENA_CRKA = "o"
@@ -7,11 +9,11 @@ PORAZ = "X"
 
 class Igra:
     def __init__(self, geslo, crke = None):
-        self.geslo = geslo
+        self.geslo = geslo.upper()
         if crke is None:
             self.crke = []
         else:
-            self.crke = crke
+            self.crke = [crka.upper() for crka in crke]
     
     def napacne_crke(self):
         return [c for c in self.crke if c not in self.geslo]
@@ -34,27 +36,22 @@ class Igra:
     def nepravilni_ugibi(self):
         return " ".join(self.napacne_crke)
     def ugibaj(self, crka):
-        if crka in self.crke():
+        crko = crka.upper()
+        if crko in self.crke:
             return PONOVLJENA_CRKA
         else:
-            self.crke = self.crke + crka
+            self.crke.append(crko)
             if self.poraz():
                 return PORAZ
             elif self.zmaga():
                 return ZMAGA
-            elif crka in self.geslo():
+            elif crko in self.geslo:
                 return PRAVILNA_CRKA
             else:
                 return NAPACNA_CRKA
 
-with open("besede.txt", encoding = "utf-8") as datoteka:
-    bazen_besed = [beseda for beseda in datoteka]
+with open("besede.txt", "r", encoding = "utf-8") as datoteka:
+    bazen_besed = [beseda.strip().upper() for beseda in datoteka]
 
-
-t_geslo = "wrerehe"
-t_crke = "aeioufeunierh"
-igra = Igra(t_geslo, t_crke)
-print(igra.napacne_crke())
-print(igra.pravilne_crke())
-print([igra.stevilo_napak(), igra.poraz(), igra.zmaga(), igra.pravilni_del_gesla(), igra.napacne_crke(), igra.ugibaj("w")])
-print(bazen_besed[0:25])
+def nova_igra():
+    return Igra(random.choice(bazen_besed))
